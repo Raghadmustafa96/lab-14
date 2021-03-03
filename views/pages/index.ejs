@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../layout/head.ejs')  %> 
+
+<body>
+  <main>
+      <script src="/app.js"></script>
+ 
+    <%- include('../layout/dropDown.ejs')  %> 
+
+    <div class = container2>
+      <p class="header2"><%= total %> saved Books </p>
+    </div>
+    <div class=container3>
+      <div>
+        <ul>
+          <% bookList.forEach(book=>{ %>
+            <li class='divBook'>
+              <img src="<%= book.image_url  %> ">
+              <h3>
+                <%= book.title %>
+              </h3>
+              <p>
+                <%= book.author %>
+              </p>
+              <a href="/books/<%= book.id %>" class="ViewDetails">View Details</a>
+            </li>
+            <% }) %>
+        </ul>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../../layout/head.ejs')  %> 
+
+<body>
+  <main>
+    <script src="/app.js"></script>
+
+    <%- include('./../../layout/dropDown.ejs')  %> 
+
+    <div class = container2>
+     <p class="header2">Search Results </p>
+    </div>
+
+    <div class = 'container3'>
+      <div id="bookItem">
+        <% booksArray.forEach(element =>{ %>
+         <div class="divBook">
+         <img src="<%= element.img%>" alt="">
+         <h2><%= element.title%></h2>
+         <p><%= element.author%></p>
+         <p><%= element.description %></p>
+
+         <section>
+          <form id="create-form" action="/books" method="POST">
+              <fieldset>
+                <input hidden name="image_url" value = "<%= element.img%>">
+                <input hidden name="title" value = "<%= element.title %>">
+                <input hidden name="author" value = "<%= element.author  %>" >
+                <input hidden name="description" value ="<%= element.description %>" >
+                <input hidden name="isbn" value ="<%= element.isbn %>" >
+                <button id = "selectBook" type="submit">Select This Book</button>
+              </fieldset>
+            </form>
+        </section>
+
+        </div>
+        <%}) %>
+
+       </div>
+    </div>
+
+  </main>
+</body>
+</html>

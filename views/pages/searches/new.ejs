@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./../../layout/head.ejs')  %> 
+
+<body>
+    <main>
+        <script src="/app.js"></script>
+        <%- include('./../../layout/dropDown.ejs')  %> 
+
+        <div class = container2> <p class="header2">Search by Title or Author </p></div>
+        <div class = container3>
+        <form class = "searchForm" action="/searches/new" method="POST">
+            <input type="text" name="search">
+            <label class="searchWay"><input type="radio" name="searchWay" value="title">Title</label>
+            <label class="searchWay"><input type="radio" name="searchWay" value="author">Author</label>
+            <button type="submit">Search the Google Books API</button>
+        </form>
+    </div>
+    </main>
+</body>
+</html>

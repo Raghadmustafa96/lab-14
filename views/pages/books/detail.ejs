@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./../../layout/head.ejs') %>
+
+  <body>
+    <main>
+
+      <%- include('./../../layout/dropDown.ejs') %>
+
+        <div class=container2>
+        </div>
+
+        <div class = 'container3 updateData';>
+          <section>
+            <ul>
+              <li class="divBook">
+                <img src="<%= book.image_url  %> ">
+                <h2>
+                  <%= book.title %>
+                </h2>
+                <p>
+                  <%= book.author%>
+                </p>
+                <p>
+                  <%= book.description%>
+                </p>
+                <p> ISBN : <%= book.isbn%>
+                </p>
+              </li>
+            </ul>
+
+            
+  <div id = "button_form">
+  <form action="/deleteBook/<%= book.id %>?_method=delete" method="post">
+    <button class="button2">Delete Book</button>
+  </form>
+
+  <button id="updateBtn" class="button2">Update details</button>
+ </div>
+ <div id="form">
+  <div id="updateForm">
+
+    <form action="/updateBook/<%= book.id %>?_method=put" method="POST">
+      <fieldset>
+      <legend> Update Book </legend>
+      <input type="text" name="title" value=" <%= book.title %>">
+      <input type="text" name="author" value="<%= book.author%>">
+      <input type="text" name="isbn" value="<%= book.isbn%>">
+      <textarea name="description" cols="30" rows="10"><%= book.description%> </textarea>
+      <button>Update Book</button>
+    </fieldset>
+    </form>
+  </div>
+</div>
+</section>
+</div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
+
+
